@@ -170,43 +170,48 @@ html {
     line-height: 1.7;
 }
 
-/* === PŁYWAJĄCE CTA === */
-.floating-cta {
+/* === PŁYWAJĄCE CTA (NOWE) === */
+.floating-cta-bubble {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     background-color: var(--secondary-color);
     color: var(--white-color);
-    border-radius: 50px;
-    padding: 15px;
+    border-radius: 50px; /* Okrągły kształt */
+    padding: 12px 15px;
     display: flex;
     align-items: center;
     text-decoration: none;
     box-shadow: var(--shadow);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     z-index: 999;
+    font-size: 1.1rem;
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
 }
 
-.floating-cta i {
-    font-size: 1.5rem;
+.floating-cta-bubble i {
+    font-size: 1.4rem;
+    margin-right: 8px;
 }
 
-.floating-cta span {
-    display: none;
-    margin-left: 10px;
+.floating-cta-bubble .cta-text {
     font-weight: bold;
-    white-space: nowrap;
+    display: inline; /* Domyślnie widoczny tekst */
 }
 
-.floating-cta:hover {
+.floating-cta-bubble:hover {
     background-color: var(--primary-color);
-    padding-right: 25px;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.floating-cta:hover span {
-    display: inline;
+/* === STYLE DLA OBRAZÓW USŁUG === */
+.service-image {
+    width: 100%;
+    height: 250px; /* Ujednolicona wysokość dla placeholderów */
+    object-fit: cover; /* Obraz pokrywa całą przestrzeń, przycinając jeśli trzeba */
+    border-bottom: 1px solid #eee;
 }
-
 
 /* === STOPKA === */
 footer {
@@ -274,6 +279,23 @@ footer {
 
     .hero h1 {
         font-size: 2.2rem;
+    }
+
+    /* Responsywność dla nowego CTA */
+    .floating-cta-bubble {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+
+    .floating-cta-bubble i {
+        font-size: 1.2rem;
+        margin-right: 0; /* Usuń margines na małych ekranach */
+    }
+
+    .floating-cta-bubble .cta-text {
+        display: none; /* Ukryj tekst na małych ekranach, zostaw tylko ikonę */
     }
 }
 

@@ -48,4 +48,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Logika dla dynamicznego linku CTA
+    const ctaButton = document.querySelector('.floating-cta-bubble');
+    if (ctaButton) {
+        const path = window.location.pathname;
+        let pageName = path.split("/").pop().replace('.html', '');
+        // Specjalna obsługa dla strony głównej
+        if (pageName === '' || pageName === 'index') {
+            pageName = 'strona-glowna';
+        }
+        ctaButton.href = `kontakt.html?source=${pageName}`;
+    }
 });
