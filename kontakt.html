@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Porozmawiajmy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Skontaktuj się z Nami</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <p class="intro-text">Wypełnij formularz lub użyj danych poniżej. Odpowiemy najszybciej, jak to możliwe.</p>
+        
+        <div class="contact-container">
+            <div class="contact-form-container">
+                <h2>Formularz kontaktowy</h2>
+                <form id="contact-form" action="#" method="POST">
+                    <label for="name">Imię i nazwisko:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Adres e-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="source">Jak do nas trafiłeś/aś?</label>
+                    <input type="text" id="source" name="source" readonly>
+
+                    <label for="message">Wiadomość:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                    
+                    <button type="submit">Wyślij wiadomość</button>
+                </form>
+            </div>
+            
+            <div class="contact-details">
+                <h2>Dane kontaktowe</h2>
+                <p><strong>Telefon:</strong> <a href="tel:+48123456789">+48 123 456 789</a></p>
+                <p><strong>E-mail:</strong> <a href="mailto:kontakt@twojafirma.pl">kontakt@twojafirma.pl</a></p>
+                <p><strong>Adres:</strong><br>ul. Przykładowa 1<br>00-001 Warszawa</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Skrypt do odczytu parametru z URL i wstawienia go do formularza
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = urlParams.get('source');
+            const sourceInput = document.getElementById('source');
+
+            if (source && sourceInput) {
+                // Zamieniamy myślniki na spacje i piszemy z dużej litery
+                const formattedSource = source.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                sourceInput.value = formattedSource;
+            } else if (sourceInput) {
+                sourceInput.value = 'Bezpośrednie wejście';
+            }
+        });
+    </script>
+
+</body>
+</html>
